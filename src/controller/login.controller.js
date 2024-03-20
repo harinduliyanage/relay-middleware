@@ -46,7 +46,8 @@ export const ssoCallBack = catchAsync(async (req, res) => {
             }
         );
 
-        console.log('response', response)
+        console.log('response headers', response.headers)
+        console.log('response data', response.data)
         // Forward Keycloak response to client
         res.headers = response.headers;
         res.status(response.status).send(response?.data);
