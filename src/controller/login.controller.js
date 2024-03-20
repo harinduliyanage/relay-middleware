@@ -6,7 +6,7 @@ export const login = catchAsync(async (req, res) => {
     const filter = pick(req.query, ["username", "eventName", "from", "to"]);
     const options = pick(req.query, ['sortBy', 'limit', 'page']);
 
-    console.log("hi")
+    console.log("hi login request")
 
     res.send(options);
 });
@@ -17,7 +17,7 @@ export const ssoCallBack = catchAsync(async (req, res) => {
     const filter = pick(req.query, ["username", "eventName", "from", "to"]);
     const options = pick(req.query, ['sortBy', 'limit', 'page']);
 
-    console.log("hi")
+    console.log("hi sso call back")
 
     res.send(options);
 });
