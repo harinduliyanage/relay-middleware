@@ -7,7 +7,8 @@ export const login = catchAsync(async (req, res) => {
 
     //
     const config = {
-        headers: req.headers
+        headers: req.headers,
+        maxRedirects: 0
     };
 
     const response = await axios
