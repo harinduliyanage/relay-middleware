@@ -15,7 +15,6 @@ import * as morgan from "./config/morgan";
 import ApiError from "./utils/ApiError";
 import { errorConverter, errorHandler } from "./middlewares/controller-advisor";
 import * as loginController from "./controller/login.controller";
-import {ssoCallBack} from "./controller/login.controller";
 
 
 const app = express();
@@ -48,7 +47,7 @@ app.set("trust proxy", true);
 // v1 api routes
 app.use("/api/v1", routes);
 app.get("/realms/phg/broker/PreferredNet/login", loginController.login)
-app.post("/realms/phg/broker/PreferredNet/endpoint", loginController.ssoCallBack)
+app.post("/realms/phg/broker/PreferredNet/endpoint", express.urlencoded({ limit: "50mb", extended: true }, loginController.ssoCallBack)
 
 // send back a 404 error for any unknown api request
 app.use((req, res, next) => {

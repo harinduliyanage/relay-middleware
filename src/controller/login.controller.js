@@ -31,7 +31,7 @@ export const login = catchAsync(async (req, res) => {
 
 export const ssoCallBack = catchAsync(async (req, res) => {
     //
-    console.log('req', req)
+    console.log('req', req.body)
     const {SAMLResponse} = req.body;
     // Prepare form data payload for Axios request to Keycloak
     const formData = new URLSearchParams();
@@ -48,6 +48,7 @@ export const ssoCallBack = catchAsync(async (req, res) => {
         });
 
         // Forward Keycloak response to client
+        res.headers = response.headers;
         res.status(response.status).send(response.data);
     } catch (e) {
         console.log('error', e);
