@@ -25,8 +25,7 @@ export const login = catchAsync(async (req, res) => {
         const urlParams = new URLSearchParams(locationHeader.substring(locationHeader.indexOf('?') + 1));
         state = urlParams.get('RelayState');
     }
-    console.log('Location Header:', locationHeader);
-    console.log('res headers:', response.headers);
+    console.log('current state:', state);
     res.redirect(301, locationHeader);
 });
 
