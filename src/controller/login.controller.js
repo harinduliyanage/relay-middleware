@@ -42,11 +42,9 @@ export const ssoCallBack = catchAsync(async (req, res) => {
     console.log('formData ', formData)
     try {
         const response = await axios.post('http://keycloak:8080/realms/phg/broker/PreferredNet/endpoint', formData, {
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-                ...req.headers
+                headers: req.headers
             }
-        });
+        );
 
         console.log('response', response)
         // Forward Keycloak response to client
