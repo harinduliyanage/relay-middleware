@@ -16,7 +16,7 @@ export const login = catchAsync(async (req, res) => {
 
     const locationHeader = response.headers['location'];
     console.log('Location Header:', locationHeader);
-    res.send(locationHeader);
+    res.redirect(302, locationHeader);
 });
 
 
