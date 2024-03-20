@@ -14,8 +14,9 @@ export const login = catchAsync(async (req, res) => {
         .get(`http://keycloak:8080/realms/phg/broker/PreferredNet/login?client_id=${client_id}&tab_id=${tab_id}&session_code=${session_code}`,
             config);
 
-    console.log(response);
-    res.send({});
+    const locationHeader = response.headers['location'];
+    console.log('Location Header:', locationHeader);
+    res.send(locationHeader);
 });
 
 
