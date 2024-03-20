@@ -2,6 +2,8 @@ import {catchAsync} from "../utils/catchAsync";
 import {pick} from "../utils/pick";
 import axios from "axios";
 
+let state = "";
+
 export const login = catchAsync(async (req, res) => {
     const {client_id, tab_id, session_code} = pick(req.query, ["client_id", "tab_id", "session_code"]);
 
@@ -19,6 +21,10 @@ export const login = catchAsync(async (req, res) => {
             config);
 
     const locationHeader = response.headers['location'];
+    if (locationHeader) {
+        const urlParams = new URLSearchParams(locationHeader.substring(locationHeader.indexOf('?') + 1));
+        state = urlParams.get('RelayState');
+    }
     console.log('Location Header:', locationHeader);
     console.log('res headers:', response.headers);
     res.redirect(301, locationHeader);
@@ -27,11 +33,9 @@ export const login = catchAsync(async (req, res) => {
 
 export const ssoCallBack = catchAsync(async (req, res) => {
     //
-    const filter = pick(req.query, ["username", "eventName", "from", "to"]);
-    const options = pick(req.query, ['sortBy', 'limit', 'page']);
-
     console.log("hi sso call back")
     console.log(req)
+    console.log(req.body)
 
-    res.send(options);
+    res.send({});
 });
