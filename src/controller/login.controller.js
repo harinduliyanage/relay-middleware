@@ -53,8 +53,11 @@ export const ssoCallBack = catchAsync(async (req, res) => {
         res.status(response.status).send(response?.data);
     } catch (e) {
         console.log('error', e);
-        console.log('error data', e?.data);
-        res.status(500).send("Something went wrong");
+        if (e?.response?.headers) {
+            res.headers = e.response.headers;
+        }
+
+        res.status(e?.response.status).send(e.response.data);
     }
 
 });
