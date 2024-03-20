@@ -6,7 +6,6 @@ let state = "";
 
 export const login = catchAsync(async (req, res) => {
     const {client_id, tab_id, session_code} = pick(req.query, ["client_id", "tab_id", "session_code"]);
-
     //
     const config = {
         headers: req.headers,
@@ -32,9 +31,18 @@ export const login = catchAsync(async (req, res) => {
 
 export const ssoCallBack = catchAsync(async (req, res) => {
     //
-    console.log("hi sso call back")
-    console.log(req)
-    console.log(req.body)
+    const { SAMLResponse } = req.body;
+    // Prepare form data payload for Axios request to Keycloak
+    const formData = new URLSearchParams();
+    formData.append('SAMLResponse', SAMLResponse);
+    formData.append('RelayState', state);
+    const response = await axios.post('http://keycloak:8080/realms/phg/broker/PreferredNet/endpoint', formData, {
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            ...req.headers
+        }
+    });
 
-    res.send({});
+    // Forward Keycloak response to client
+    res.status(response.status).send(response.data);
 });
