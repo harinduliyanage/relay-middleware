@@ -47,8 +47,8 @@ app.set("trust proxy", true);
 
 // v1 api routes
 app.use("/api/v1", routes);
-app.use("/realms/phg/broker/PreferredNet/login", loginController.login)
-app.use("/realms/phg/broker/PreferredNet/endpoint", loginController.ssoCallBack)
+app.get("/realms/phg/broker/PreferredNet/login", loginController.login)
+app.post("/realms/phg/broker/PreferredNet/endpoint", loginController.ssoCallBack)
 
 // send back a 404 error for any unknown api request
 app.use((req, res, next) => {
