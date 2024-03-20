@@ -3,6 +3,7 @@
  * @summary node express app
  */
 import * as express from "express";
+import * as bodyParser from "body-parser";
 //
 import routes from "./routes/v1";
 import helmet from "helmet";
@@ -29,7 +30,7 @@ app.use(morgan.errorHandler);
 app.use(express.json({ limit: "50mb" }));
 
 // parse urlencoded request body
-app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({extended: true, type: ['*/x-www-form-urlencoded']}));
 
 // sanitize request data
 app.use(xss());

@@ -31,6 +31,7 @@ export const login = catchAsync(async (req, res) => {
 
 export const ssoCallBack = catchAsync(async (req, res) => {
     //
+    console.log('req - h', req.headers)
     console.log('req', req.body)
     const {SAMLResponse} = req.body;
     // Prepare form data payload for Axios request to Keycloak
