@@ -31,18 +31,28 @@ export const login = catchAsync(async (req, res) => {
 
 export const ssoCallBack = catchAsync(async (req, res) => {
     //
-    const { SAMLResponse } = req.body;
+    console.log('req', req)
+    const {SAMLResponse} = req.body;
     // Prepare form data payload for Axios request to Keycloak
     const formData = new URLSearchParams();
     formData.append('SAMLResponse', SAMLResponse);
     formData.append('RelayState', state);
-    const response = await axios.post('http://keycloak:8080/realms/phg/broker/PreferredNet/endpoint', formData, {
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-            ...req.headers
-        }
-    });
 
-    // Forward Keycloak response to client
-    res.status(response.status).send(response.data);
+    console.log('formData ', formData)
+    try {
+        const response = await axios.post('http://keycloak:8080/realms/phg/broker/PreferredNet/endpoint', formData, {
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                ...req.headers
+            }
+        });
+
+        // Forward Keycloak response to client
+        res.status(response.status).send(response.data);
+    } catch (e) {
+        console.log('error', e);
+        console.log('error data', e?.data);
+        res.status(500).send("Something went wrong");
+    }
+
 });
