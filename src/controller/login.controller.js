@@ -8,7 +8,10 @@ export const login = catchAsync(async (req, res) => {
     //
     const config = {
         headers: req.headers,
-        maxRedirects: 0
+        maxRedirects: 0,
+        validateStatus: status => {
+            return status === 200 || status === 302 || status === 301;
+        }
     };
 
     const response = await axios
@@ -17,8 +20,8 @@ export const login = catchAsync(async (req, res) => {
 
     const locationHeader = response.headers['location'];
     console.log('Location Header:', locationHeader);
-    console.log('res:', response);
-    res.redirect(302, locationHeader);
+    console.log('res headers:', response.headers);
+    res.redirect(301, locationHeader);
 });
 
 
