@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saml2p:Response xmlns:saml2p="urn:oasis:names:tc:SAML:2.0:protocol"
+                 Consent="urn:oasis:names:tc:SAML:2.0:consent:unspecified"
+                 Destination="https://dev-auth-amicacorp.surge.tools/realms/phg/broker/PreferredNet/endpoint"
+                 ID="HFML7D6JSZI2ETH6Y5V4GR4I6QYK1A6ONDSS0XN0" InResponseTo="ID_faf0d154-eefb-4b75-8732-2720f9238f21"
+                 IssueInstant="2024-03-21T07:10:41.764Z" Version="2.0">
+    <saml2:Issuer xmlns:saml2="urn:oasis:names:tc:SAML:2.0:assertion"
+                  Format="urn:oasis:names:tc:SAML:2.0:nameid-format:entity">saml
+    </saml2:Issuer>
+    <saml2p:Status>
+        <saml2p:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Success"/>
+    </saml2p:Status>
+    <saml2:Assertion xmlns:saml2="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                     ID="S5HBFOMMOM4JC25LTNEFPJI72ZZH9UK6VVYW2K0A" IssueInstant="2024-03-21T07:10:41.764Z"
+                     Version="2.0">
+        <saml2:Issuer Format="urn:oasis:names:tc:SAML:2.0:nameid-format:entity">saml</saml2:Issuer>
+        <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+            <ds:SignedInfo>
+                <ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+                <ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+                <ds:Reference URI="#S5HBFOMMOM4JC25LTNEFPJI72ZZH9UK6VVYW2K0A">
+                    <ds:Transforms>
+                        <ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+                        <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">
+                            <ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#"
+                                                    PrefixList="xsd"/>
+                        </ds:Transform>
+                    </ds:Transforms>
+                    <ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+                    <ds:DigestValue>ftvwwPVTQfVEIs8cbrd56F2eOqemzmTT9TTz5onkEH4=</ds:DigestValue>
+                </ds:Reference>
+            </ds:SignedInfo>
+            <ds:SignatureValue>
+                ejNk28wPrVeaohprXipcPkcAJepjA6TvfYqQHY373woDDmQ8pVLOygDYgsW7TYBC3ScxsyovpQnCKE1lY2BTDGD9WNHcaAaKvuLoNo5Km1vPr/+FnvW7qla2ig7VPCZC372OFCvjFeOCa/UI+CEwPUAz4fL/q8X2IjLdvw0too4wXsG9OfwSCNT873KUjHt9HgygPwUpqQFEgMHnU9ZTlCp2S/+dyn7irdzo9eTGT7DOz/NK84hA+GhUpsGvA0pqNSMF1sTxm62gtEAmPNeGwgSh45dAoAYisPhzbdjVVDDOMNlnFGNe1LQCLgkFmpPsuGKaG2VN1db5kKgt5Tt9dNGMSXdxgRwMZ4VErZoUEUoFbMcbFpYRYFtUHrGvJqtYBl+kg6oErp/rcSQU7kdcRPhw0vfh+QVueLNPv66qM3L8Elz4jIHY+2iSOHBx9aT69sh3xAVmktpUEpNjfgubnyIGLVpE/hL6LZxhQNTpE/XwOObfZ0YFo3SqEqsxRftBgR+vi97yY+MMeWsJJ6kcqlzR5rY51NPLVT8RYdafa5ZvHVJUi5FTmuSmc8/p8dR4AYFUIMXoTANvifEy1Skkkfzh8dPivDKmQtZNsZ58SYPJhW4F+Jd9RLfmCsXchW1X4NmpIex/zgxvTysR+EU4N3q1BNo+CLWK9kP91W3DZYs=
+            </ds:SignatureValue>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+                        MIIFgTCCA2mgAwIBAgIVAK/yoONykTNdEyurzu4a8mozbJ5KMA0GCSqGSIb3DQEBCwUAMHoxCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDTzEQMA4GA1UEBxMHQm91bGRlcjEVMBMGA1UEChMMU3VyZ2UgZ2xvYmFsMRkwFwYDVQQLExBKdW1wQ2xvdWRTQU1MSWRQMRowGAYDVQQDExFKdW1wQ2xvdWRTQU1MVXNlcjAeFw0yMzEwMTYwNTI2MTRaFw0yODEwMTYwNTI2MTRaMHoxCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDTzEQMA4GA1UEBxMHQm91bGRlcjEVMBMGA1UEChMMU3VyZ2UgZ2xvYmFsMRkwFwYDVQQLExBKdW1wQ2xvdWRTQU1MSWRQMRowGAYDVQQDExFKdW1wQ2xvdWRTQU1MVXNlcjCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBAMrF9mS7Bz7SCPuYCFkr4j2mvMXqvOL3TMIuQmy/4IRXrUmbDBS+IqPw8wRUrmoa7nAeU6F1hz7cYs1D+pra65d782MEzTiFtM/Ii3O86UzjzZGKJTQalFqY3qyXBXxnAO4vHO1WwWXuOysBrs+8h+ADZef/U1/Evfo9GmQ9sWaUjJUDqQobKbLQG+XWOgMNOgLvjC8H/gWyNrhEG6FECgnRvTvUSBmseUaXQw5fMbfMW4IqE3z5kUMVB67dON1uLHz7WVjLp1WnMIjIx/wxy1ak7ZrobN8/HJgPN8rGpI2b5+BCWliNylV/WSAc2WwvmjL4iH4lNIZP3TSbXzzteCmUaGlDrzJKe+gXf9pBc8djiP17t41NantRjkOdE81E5UUYgzkSnF/0GWS98XWpxfQHfj8DeeCgJ1wppHPibLE3Z2cTmiNzHgeh0eZ7AZ1aODBlzKGhLo5NRgzDkakVMPJhhfqsDeuo/BuR+jhnKDGItxXWTP8OYlZLO4XTiosCDg5YDSJ5oOueufzB3UehuxRNXqZ/NwStN2oA0XaEWmK0Zda4YwmFAaibS9XrN93jTyQBqZrMeThSdJHR0eYCK7EssCHoVoi1kU6XA9TC9hs8h2mUcuN4P8CM4SzJ8tLkf8c+AByfxlwDOPkQhtgrxrzEFrW6wb7QhWxPGTkmtSZ/AgMBAAEwDQYJKoZIhvcNAQELBQADggIBAJTtzPZWzMu2flchFT/Kb8KJVNb362HdIsOpy2ax6G4smmJiVdPrMfZ4cW5IyZ1RkCa7UUmzml+DTQ2SK3lntoSUj6EHgXpqzEAti+Mi47PU+nrW76rlcsJpgndDWDVSwlaeXXLbpqd7Byv/WB1OW27fmIlh04Pl9LFE5EfQNUhrc8YLLt8RAcTOA9pHSbOZ3vLnm4QMYB+86/2+QFHpxkeufFd58e/8ftoBGNvnmpPZbThGCucmqTCpFpkVcEUCnSxiJ9BTm40Gh1qp4NACyuuunz20jRTuAGo5mxmzPbb/b2pTezxw678mQwwUFb8VWdJo9dLUpy6GHmukE1My7aFXJm+b0O8Kqz8wwZTqQy9RCF8/ueSYCtA9GtCq4PqE+EeLRrz3iHqL3rkr12QVwBUZu66opvYVHP/gKuxLFNOXyByfJZhnlfDfrfoWAop1Yp2Id+ND0H7BFvTLxKH/J9o4cIeHc9aVsqNGYnFErPfclWTwZEg6RIfFbjW728tRejqhlbLD9h1S2EiU2ZMZzw/h6UKDt0WScbRamt/bLVKAqu/MXhzGPNWXfCVkV5qcVstOAyOXuD6JnYxG3L/DhY7pbGR3U7acDFjG7R9rOSBd77iYaoALwMgmiG3k8ozbHQo6cfu5cayhDPvKmd8FRJC2CsfA5Eg1ZDyZMGxLhnRd
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </ds:Signature>
+        <saml2:Subject>
+            <saml2:NameID Format="urn:oasis:names:tc:SAML:1.0:nameid-format:unspecified">harindu@surge.global
+            </saml2:NameID>
+            <saml2:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
+                <saml2:SubjectConfirmationData InResponseTo="ID_faf0d154-eefb-4b75-8732-2720f9238f21"
+                                               NotOnOrAfter="2024-03-21T07:15:41.764Z"
+                                               Recipient="https://dev-auth-amicacorp.surge.tools/realms/phg/broker/PreferredNet/endpoint"/>
+            </saml2:SubjectConfirmation>
+        </saml2:Subject>
+        <saml2:Conditions NotBefore="2024-03-21T07:05:41.764Z" NotOnOrAfter="2024-03-21T07:15:41.764Z">
+            <saml2:AudienceRestriction>
+                <saml2:Audience>https://dev-auth-amicacorp.surge.tools/auth/realms/phg</saml2:Audience>
+            </saml2:AudienceRestriction>
+        </saml2:Conditions>
+        <saml2:AttributeStatement>
+            <saml2:Attribute Name="firstname" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified">
+                <saml2:AttributeValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xsd:string">
+                    Harindu
+                </saml2:AttributeValue>
+            </saml2:Attribute>
+            <saml2:Attribute Name="lastname" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified">
+                <saml2:AttributeValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xsd:string">
+                    Liyanage
+                </saml2:AttributeValue>
+            </saml2:Attribute>
+        </saml2:AttributeStatement>
+        <saml2:AuthnStatement AuthnInstant="2024-03-21T07:10:41.764Z"
+                              SessionIndex="f5aec803-fdfa-435a-95aa-e9db523465a2">
+            <saml2:AuthnContext>
+                <saml2:AuthnContextClassRef>urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport
+                </saml2:AuthnContextClassRef>
+            </saml2:AuthnContext>
+        </saml2:AuthnStatement>
+    </saml2:Assertion>
+</saml2p:Response>
