@@ -1,30 +1,29 @@
 <Response xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
-          ID="dqt0ugR1j0ZzMC5yy02y" Version="2.0" IssueInstant="2024-03-21T06:58:20.480375Z"
+          ID="jlF7SZhbYmdRPYZHML1T" Version="2.0" IssueInstant="2024-03-22T04:28:13.543Z"
           Destination="https://dev2-auth-amicacorp.surge.tools/realms/phg/broker/PreferredNet/endpoint"
-          xmlns="urn:oasis:names:tc:SAML:2.0:protocol"
-          InResponseTo="surge">
+          xmlns="urn:oasis:names:tc:SAML:2.0:protocol" InResponseTo="_7eb5a7dc-50bf-4675-aaec-0a9a097613e5">
     <saml:Issuer>https://PreferredNet.net</saml:Issuer>
     <Status>
         <StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Success"/>
     </Status>
-    <saml:Assertion Version="2.0" ID="_bf0f9843-7e26-473b-8434-ec49e2dcf6f8" IssueInstant="2024-03-21T06:58:20.480375Z">
+    <saml:Assertion Version="2.0" ID="_7eb5a7dc-50bf-4675-aaec-0a9a097613e5" IssueInstant="2024-03-22T04:28:13.543Z">
         <saml:Issuer>https://PreferredNet.net</saml:Issuer>
         <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
             <SignedInfo>
                 <CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
                 <SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
-                <Reference URI="#_bf0f9843-7e26-473b-8434-ec49e2dcf6f8">
+                <Reference URI="#_7eb5a7dc-50bf-4675-aaec-0a9a097613e5">
                     <Transforms>
                         <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
                         <Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
                     </Transforms>
                     <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
-                    <DigestValue>dvR51tV187NuctPcHjqz6W56SuhgvL9iDY1G9W0ZdZk=</DigestValue>
+                    <DigestValue>VpXik0cpyIuzjTzu7HtZ0aHCgT5U/Ux3R46SjQ8Ee/A=</DigestValue>
                 </Reference>
             </SignedInfo>
             <SignatureValue>
-                hDPrf5H83+XLar7fLvsHz/kkW3sgaxCbp2UE8DWE4zdUnSv6PpgVcQEUtNzOnZpqkeG5l7SYrtcawROFaOkXBTbAO0NQr9FE7bi7NhwpWPYNDqhdgISFzMCAippL2D8YVhVFF+c+c49imK4goDHHeMd4/MVJbJTB18iaVj1aJ+jP2uSUqlT+m0I+ApwEl/ipe750aXTshleAKj0RPNx473f7iglla3qRlgwPUI+b+jWDKSG0mfwExhr6CUmXKulSNtEHbuGTdE1425oUTc04msK0Qt/snTD191Uio+roQa9r+tTD3u9gV/01JMbQjKD74PWOHVn9dYYQVVsM7tmnfQ==
+                fF5dQKkGZYzwVtvP/XGn9sumdLLuhnUlGpay+KZmBHGQkKHpJtLcCNhCixp0YGE7baFPFqXXwlst/3UwSH5+nJqDVWzDgJgrXCgOti/eEuj4V32g+NiEtf+4egeoBGypuiAJskurzpZ6HJmEh2uP0WbhRgWiWhtkDLelt7UCxqisgW9URxfEWrXUIh5qiJ1LV7E69LYxADbMSWMQmpUPn3hnWMMUmb18jG43r7yb5B1oKV5X59JBeVD7SDBC+v3VWP59Yg9UU/vRcMj2AnPkJkm/5YN6/fC2b3ZakK5gh4jQcEwjg0LP6yZCM/ggJXsGS/U0RwnIUnF+ZopRTxw07g==
             </SignatureValue>
             <KeyInfo>
                 <X509Data>
@@ -40,16 +39,16 @@
             <saml:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
                 <saml:SubjectConfirmationData
                         Recipient="https://dev2-auth-amicacorp.surge.tools/realms/phg/broker/PreferredNet/endpoint"
-                        InResponseTo="surge" NotOnOrAfter="2024-03-21T07:13:20.480375Z"/>
+                        InResponseTo="surge" NotOnOrAfter="2024-03-22T04:43:13.543Z"/>
             </saml:SubjectConfirmation>
         </saml:Subject>
-        <saml:Conditions NotBefore="2024-03-21T06:58:20.480375Z" NotOnOrAfter="2024-03-21T07:13:20.480375Z">
+        <saml:Conditions NotBefore="2024-03-22T04:28:13.543Z" NotOnOrAfter="2024-03-22T04:43:13.543Z">
             <saml:AudienceRestriction>
                 <saml:Audience>https://dev2-auth-amicacorp.surge.tools/realms/phg</saml:Audience>
             </saml:AudienceRestriction>
         </saml:Conditions>
-        <saml:AuthnStatement AuthnInstant="2024-03-21T06:58:20.480375Z"
-                             SessionIndex="_bf0f9843-7e26-473b-8434-ec49e2dcf6f8">
+        <saml:AuthnStatement AuthnInstant="2024-03-22T04:28:13.543Z"
+                             SessionIndex="_7eb5a7dc-50bf-4675-aaec-0a9a097613e5">
             <saml:AuthnContext>
                 <saml:AuthnContextClassRef>urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified
                 </saml:AuthnContextClassRef>
