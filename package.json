@@ -31,12 +31,14 @@
     "morgan": "^1.10.0",
     "openai": "^3.2.1",
     "qs": "^6.11.2",
+    "saml-encoder-decoder-js": "^1.0.2",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^4.6.3",
     "uuid": "^9.0.0",
     "validator": "^13.9.0",
     "winston": "^3.3.3",
     "winston-loki": "^6.0.8",
+    "xml2js": "^0.6.2",
     "xss-clean": "^0.1.1"
   },
   "devDependencies": {
