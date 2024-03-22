@@ -46,7 +46,7 @@ export const ssoCallBack = catchAsync(async (req, res) => {
 
     // Prepare form data payload for Axios request to Keycloak
     const formData = new URLSearchParams();
-    formData.append('SAMLResponse', amendedRes);
+    formData.append('SAMLResponse', btoa(amendedRes));
     formData.append('RelayState', state);
 
     console.log('formData ', formData)
