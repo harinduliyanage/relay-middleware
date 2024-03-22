@@ -2,7 +2,7 @@
           xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
           ID="jlF7SZhbYmdRPYZHML1T" Version="2.0" IssueInstant="2024-03-22T04:28:13.543Z"
           Destination="https://dev2-auth-amicacorp.surge.tools/realms/phg/broker/PreferredNet/endpoint"
-          xmlns="urn:oasis:names:tc:SAML:2.0:protocol" InResponseTo="_7eb5a7dc-50bf-4675-aaec-0a9a097613e5">
+          xmlns="urn:oasis:names:tc:SAML:2.0:protocol" InResponseTo="ID_4f6674ea-1a82-48d8-bbdf-d9eeb36468e8">
     <saml:Issuer>https://PreferredNet.net</saml:Issuer>
     <Status>
         <StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Success"/>
