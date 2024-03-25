@@ -1,5 +1,5 @@
 import * as saml from "saml-encoder-decoder-js";
-import {parseString, Builder} from "xml2js";
+import {parseString} from "xml2js";
 
 export const decodeAuthRequestId = async (samlReq) => {
     return new Promise((resolve, reject) => {
@@ -21,6 +21,8 @@ export const appendingRequestId = async (xmlContent, requestId) => {
             if (err) {
                 reject(err);
             }
+            console.log(xml)
+            console.log(typeof xml)
             // append InResponseTo to the first tag
             xml = xml.replace(`InResponseTo="surge"`, `InResponseTo="${requestId}"`);
             // added a whole string slice to make it more unique
@@ -33,7 +35,7 @@ export const appendingRequestId = async (xmlContent, requestId) => {
                 if (err) {
                     reject(err);
                 }
-                resolve(xml);
+                resolve(encoded);
             });
         });
     })
