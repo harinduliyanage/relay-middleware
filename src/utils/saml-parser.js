@@ -17,20 +17,24 @@ export const decodeAuthRequestId = async (samlReq) => {
 
 export const appendingRequestId = async (xmlContent, requestId) => {
     return new Promise((resolve, reject) => {
-    // Parse the XML content into a JavaScript object
-        parseString(xmlContent, (err, result) => {
+        saml.decodeSamlRedirect(xmlContent, (err, xml) => {
             if (err) {
-                console.error(err);
                 reject(err);
             }
+            // append InResponseTo to the first tag
+            xml = xml.replace(`InResponseTo="surge"`, `InResponseTo="${requestId}"`);
+            // added a whole string slice to make it more unique
+            xml = xml.replace(
+                `<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema`,
+                `<Response InResponseTo="${requestId}"  xmlns:xsd="http://www.w3.org/2001/XMLSchema`
+            );
 
-            // Update the InResponseTo attribute value
-            result.Response.$.InResponseTo = requestId;
-
-            // Convert the JavaScript object back to XML
-            const builder = new Builder();
-            const updatedXmlContent = builder.buildObject(result);
-            resolve(updatedXmlContent);
+            saml.encodeSamlRedirect(xml, function (err, encoded) {
+                if (err) {
+                    reject(err);
+                }
+                resolve(xml);
+            });
         });
     })
 
