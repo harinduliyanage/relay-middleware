@@ -1,5 +1,5 @@
 import * as saml from "saml-encoder-decoder-js";
-import {parseString} from "xml2js";
+import {parseString, Builder} from "xml2js";
 
 export const decodeAuthRequestId = async (samlReq) => {
     return new Promise((resolve, reject) => {
@@ -17,21 +17,23 @@ export const decodeAuthRequestId = async (samlReq) => {
 
 export const appendingRequestId = async (xmlContent, requestId) => {
     return new Promise((resolve, reject) => {
-
-        // append InResponseTo to the first tag
-        xmlContent = xmlContent.replace(`InResponseTo="surge"`, `InResponseTo="${requestId}"`);
-        // added a whole string slice to make it more unique
-        xmlContent = xmlContent.replace(
-            `<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema`,
-            `<Response InResponseTo="${requestId}"  xmlns:xsd="http://www.w3.org/2001/XMLSchema`
-        );
-
-        saml.encodeSamlRedirect(xmlContent, function (err, encoded) {
-            if (err) {
-                reject(err);
-            }
-            resolve(encoded);
-        });
+        // Parse the XML content into a JavaScript object
+        try {
+            xmlContent = xmlContent.replace(`InResponseTo="surge"`, `InResponseTo="${requestId}"`);
+            xmlContent = xmlContent.replace(
+                `<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema`,
+                `<Response InResponseTo="${requestId}"  xmlns:xsd="http://www.w3.org/2001/XMLSchema`
+            );
+        }catch (e) {
+            console.log(e);
+            reject(e)
+        }
     })
-
 }
+/**
+ * xml = xml.replace(`InResponseTo="surge"`, `InResponseTo="${requestId}"`);
+ *  xmlContent = xmlContent.replace(
+ `<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema`,
+ `<Response InResponseTo="${requestId}"  xmlns:xsd="http://www.w3.org/2001/XMLSchema`
+ );
+ */

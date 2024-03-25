@@ -42,10 +42,11 @@ export const ssoCallBack = catchAsync(async (req, res) => {
 
     const amendedRes = await appendingRequestId(atob(SAMLResponse), requestId);
     console.log("amendedRes", amendedRes)
+    console.log("amendedRes encoded", btoa(amendedRes))
 
     // Prepare form data payload for Axios request to Keycloak
     const formData = new URLSearchParams();
-    formData.append('SAMLResponse', amendedRes);
+    formData.append('SAMLResponse', btoa(amendedRes));
     formData.append('RelayState', state);
 
     console.log('formData ', formData)
