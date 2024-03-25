@@ -40,7 +40,7 @@ export const ssoCallBack = catchAsync(async (req, res) => {
     console.log('req', req.body)
     const {SAMLResponse} = req.body;
 
-    const amendedRes = await appendingRequestId(SAMLResponse, requestId);
+    const amendedRes = await appendingRequestId(btoa(SAMLResponse), requestId);
     console.log("amendedRes", amendedRes)
 
     // Prepare form data payload for Axios request to Keycloak

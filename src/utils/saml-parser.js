@@ -17,26 +17,20 @@ export const decodeAuthRequestId = async (samlReq) => {
 
 export const appendingRequestId = async (xmlContent, requestId) => {
     return new Promise((resolve, reject) => {
-        saml.decodeSamlRedirect(xmlContent, (err, xml) => {
+
+        // append InResponseTo to the first tag
+        xmlContent = xmlContent.replace(`InResponseTo="surge"`, `InResponseTo="${requestId}"`);
+        // added a whole string slice to make it more unique
+        xmlContent = xmlContent.replace(
+            `<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema`,
+            `<Response InResponseTo="${requestId}"  xmlns:xsd="http://www.w3.org/2001/XMLSchema`
+        );
+
+        saml.encodeSamlRedirect(xmlContent, function (err, encoded) {
             if (err) {
                 reject(err);
             }
-            console.log(xml)
-            console.log(typeof xml)
-            // append InResponseTo to the first tag
-            xml = xml.replace(`InResponseTo="surge"`, `InResponseTo="${requestId}"`);
-            // added a whole string slice to make it more unique
-            xml = xml.replace(
-                `<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema`,
-                `<Response InResponseTo="${requestId}"  xmlns:xsd="http://www.w3.org/2001/XMLSchema`
-            );
-
-            saml.encodeSamlRedirect(xml, function (err, encoded) {
-                if (err) {
-                    reject(err);
-                }
-                resolve(encoded);
-            });
+            resolve(encoded);
         });
     })
 
