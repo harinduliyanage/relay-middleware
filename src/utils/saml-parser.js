@@ -24,6 +24,7 @@ export const appendingRequestId = async (xmlContent, requestId) => {
                 `<Response xmlns:xsd="http://www.w3.org/2001/XMLSchema`,
                 `<Response InResponseTo="${requestId}"  xmlns:xsd="http://www.w3.org/2001/XMLSchema`
             );
+            resolve(xmlContent);
         }catch (e) {
             console.log(e);
             reject(e)
