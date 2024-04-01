@@ -74,13 +74,14 @@ export const ssoCallBack = catchAsync(async (req, res) => {
     console.log("response data", response.data);
     // Forward Keycloak response to client
     res.headers = response.headers;
-    res.status(response.status).send(response?.data);
+    res.redirect(301, response.headers["location"]);
+    // res.status(response.status).send(response?.data);
   } catch (e) {
     console.log("error", e);
     if (e?.response?.headers) {
       res.headers = e.response.headers;
     }
-
-    res.status(e?.response.status).send(e.response.data);
+    res.redirect(301, response.headers["location"]);
+    // res.redirect(e?.response.status).send(e.response.data);
   }
 });
