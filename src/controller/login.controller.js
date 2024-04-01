@@ -42,13 +42,13 @@ export const login = catchAsync(async (req, res) => {
 
 export const ssoCallBack = catchAsync(async (req, res) => {
   //
-//   console.log("req - h", req.headers);
-//   console.log("req", req.body);
+  //   console.log("req - h", req.headers);
+  //   console.log("req", req.body);
   const { SAMLResponse } = req.body;
 
   const amendedRes = await appendingRequestId(atob(SAMLResponse), requestId);
-//   console.log("amendedRes", amendedRes);
-//   console.log("amendedRes encoded", btoa(amendedRes));
+  //   console.log("amendedRes", amendedRes);
+  //   console.log("amendedRes encoded", btoa(amendedRes));
 
   // Prepare form data payload for Axios request to Keycloak
   const formData = new URLSearchParams();
@@ -62,14 +62,15 @@ export const ssoCallBack = catchAsync(async (req, res) => {
     //   return status === 200 || status === 302 || status === 301;
     // },
   };
-  console.log("formData ", formData);
+  //   console.log("formData ", formData);
   try {
     const response = await axios.post(
       "http://keycloak:8080/realms/phg/broker/PreferredNet/endpoint",
       formData,
       config
     );
-
+    console.log("==============");
+    console.log(response);
     console.log("response headers", response.headers);
     console.log("response data", response.data);
     // Forward Keycloak response to client
