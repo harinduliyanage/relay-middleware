@@ -58,9 +58,9 @@ export const ssoCallBack = catchAsync(async (req, res) => {
   const config = {
     headers: req.headers,
     maxRedirects: 0,
-    // validateStatus: (status) => {
-    //   return status === 200 || status === 302 || status === 301;
-    // },
+    validateStatus: (status) => {
+      return status === 200 || status === 302 || status === 301;
+    },
   };
   //   console.log("formData ", formData);
   try {
@@ -70,19 +70,19 @@ export const ssoCallBack = catchAsync(async (req, res) => {
       config
     );
     console.log("==============");
-    console.log(response);
+    console.log(response.response);
     // console.log("response headers", response.headers);
     // console.log("response data", response.data);
     // Forward Keycloak response to client
     res.headers = response.headers;
-    res.redirect(301, response.headers["location"]);
+    res.redirect(301, response.response.headers["location"]);
     // res.status(response.status).send(response?.data);
   } catch (e) {
     console.log("error", e);
     if (e?.response?.headers) {
       res.headers = e.response.headers;
     }
-    res.redirect(301, response.headers["location"]);
+    res.redirect(301, response.response.headers["location"]);
     // res.redirect(e?.response.status).send(e.response.data);
   }
 });
