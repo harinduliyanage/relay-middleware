@@ -58,9 +58,9 @@ export const ssoCallBack = catchAsync(async (req, res) => {
   const config = {
     headers: req.headers,
     maxRedirects: 0,
-    validateStatus: (status) => {
-      return status === 200 || status === 302 || status === 301;
-    },
+    // validateStatus: (status) => {
+    //   return status === 200 || status === 302 || status === 301;
+    // },
   };
   console.log("formData ", formData);
   try {
